@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
     private Planet activePlanet;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
         updatePlanetsAndStars();
 	}
 	
