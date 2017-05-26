@@ -49,8 +49,6 @@ public class Star : MonoBehaviour {
                     break;
             }
         }
-
-        Debug.Log("Star: dir " + directionalLights.Length + " point " + pointLights.Length);
 	}
 	
 	// Update is called once per frame

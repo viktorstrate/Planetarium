@@ -9,10 +9,7 @@ public class Entity : MonoBehaviour {
 
     // Use this for initialization
     public void Start() {
-        Debug.Log("Entity");
-
         gm = GameManager.getGameManager();
-
         rb = GetComponent<Rigidbody>();
 	}
 	
