@@ -17,7 +17,7 @@ public class Player : Entity {
 
 
 	// Use this for initialization
-	void Start () {
+	new void Start () {
         base.Start();
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         cam = gameObject.GetComponentInChildren<Camera>();
@@ -26,7 +26,7 @@ public class Player : Entity {
 	// Update is called once per frame
 	void Update () {
         // Rotate to face upwards
-        Vector3 planetOrientation = (transform.position - planet.transform.position).normalized;
+        Vector3 planetOrientation = (transform.position - gm.getActivePlanet().transform.position).normalized;
         transform.rotation = Quaternion.FromToRotation(transform.up, planetOrientation) * transform.rotation;
 
         Vector3 inputVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
@@ -39,7 +39,7 @@ public class Player : Entity {
         transform.Rotate(Vector3.up * Input.GetAxis("Mouse X") * horizontalMouseSensitivity * Time.deltaTime);
 	}
 
-    private void FixedUpdate()
+    private new void FixedUpdate()
     {
         base.FixedUpdate();
 

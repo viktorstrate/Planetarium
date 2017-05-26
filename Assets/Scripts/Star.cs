@@ -7,8 +7,12 @@ public class Star : MonoBehaviour {
     private Light[] directionalLights;
     private Light[] pointLights;
 
+    private GameManager gm;
+
 	// Use this for initialization
 	void Start () {
+        gm = GameManager.getGameManager();
+
         Light[] lights = GetComponentsInChildren<Light>();
         int countDirectional = 0;
         int countPoint = 0;
@@ -51,6 +55,13 @@ public class Star : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+
+        Vector3 direction = gm.getActivePlanet().transform.position - transform.position;
+
+        foreach (Light dir in directionalLights)
+        {
+
+            dir.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+        }
 	}
 }

@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour {
-
-    protected Planet planet;
+    
     protected Rigidbody rb;
+    protected GameManager gm;
 
-	// Use this for initialization
-	public void Start () {
+    // Use this for initialization
+    public void Start() {
         Debug.Log("Entity");
-        planet = GameObject.FindGameObjectWithTag("Planet").GetComponent<Planet>();
+
+        gm = GameManager.getGameManager();
+
         rb = GetComponent<Rigidbody>();
 	}
 	
@@ -21,6 +23,15 @@ public class Entity : MonoBehaviour {
 
     protected void FixedUpdate()
     {
-        planet.ApplyForce(rb, transform);
+        foreach(Planet p in gm.getPlanets())
+        {
+            applyGravity(p);
+        }
+
+    }
+
+    private void applyGravity(Planet planet)
+    {
+        planet.ApplyGravity(rb, transform);
     }
 }

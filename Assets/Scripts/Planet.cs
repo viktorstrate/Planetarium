@@ -16,7 +16,7 @@ public class Planet : MonoBehaviour {
 		
 	}
 
-    public void ApplyForce(Rigidbody rb, Transform entityTrans)
+    public void ApplyGravity(Rigidbody rb, Transform entityTrans)
     {
         Vector3 force = transform.position - entityTrans.position;
         force.Normalize();

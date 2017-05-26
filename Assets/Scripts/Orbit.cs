@@ -14,8 +14,7 @@ public class Orbit : MonoBehaviour {
 		
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         transform.RotateAround(orbitAround.position, Vector3.up, (360 * Time.deltaTime) / (dayCycle * 60));
     }
 }
