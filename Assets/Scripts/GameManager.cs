@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 
     private Planet[] planets;
     private Star[] stars;
+    private Player player;
 
     private Planet activePlanet;
 
@@ -41,6 +42,12 @@ public class GameManager : MonoBehaviour {
         {
             stars[i] = starGOs[i].GetComponent<Star>();
         }
+    }
+
+    public Player getPlayer()
+    {
+        if (!player) player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        return player;
     }
 
     public Planet[] getPlanets()

@@ -54,4 +54,9 @@ public class Player : Entity {
     {
         return Physics.Raycast(transform.position, -transform.up, distToGround + 0.1f);
     }
+
+    public Inventory GetInventory()
+    {
+        return gameObject.GetComponent<Inventory>();
+    }
 }

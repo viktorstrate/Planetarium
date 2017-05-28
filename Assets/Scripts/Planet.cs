@@ -11,8 +11,6 @@ public class Planet : MonoBehaviour {
     void Start () {
         gm = GameManager.getGameManager();
         gameObject.layer = LayerMask.NameToLayer("ActivePlanet");
-
-        Debug.Log(gameObject.GetInstanceID()+", "+ gm.getActivePlanet().gameObject.GetInstanceID());
         
         if (gameObject.GetInstanceID() == gm.getActivePlanet().gameObject.GetInstanceID())
             SetPlanetLayer("ActivePlanet");
